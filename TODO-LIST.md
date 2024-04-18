@@ -12,10 +12,10 @@
    2. Ionic Mobile Apps
 
 * [ ] Push this project up to GitHub for src code management
-* [ ] Theme - Setup First
-* [ ] Fonts/Typography - Setup Second
+* [x] light/dark mode (still needs work but foundation is set)
+* [x] Fonts/Typography - Setup Second (still needs work but foundation is set)
+* [ ] Theme - Do theme-ing *after* setting up a coherent **main** theme.
 * [ ] Layout 
-* [ ] light/dark mode
 * [ ] Idea for Projects page -> Parallax photo (Forest trees looking up) to project the "forrest for the trees" kind of vibe.
 * [ ] Switchable themes/fonts? Seems like a fun idea for showing off skill set.
 * [ ] Get a favicon going

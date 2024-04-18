@@ -1,10 +1,9 @@
 @use "themes";
 @use "fonts";
 
-
 html,
 body {
-  height: 100%;
-  margin: 0;
-  font-family:var(--font-family);
+    height: 100%;
+    margin: 0;
+    font-family: var(--font-family);
 }
