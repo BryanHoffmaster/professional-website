@@ -11,6 +11,8 @@
    1. Component library 
    2. Ionic Mobile Apps
 
+### The goal of the following TODOs is to promote my knowledge of intricate details that matter to those who wish to hire me and those who wish to know more about what I can offer.
+
 * [ ] Push this project up to GitHub for src code management
 * [x] light/dark mode (still needs work but foundation is set)
 * [x] Fonts/Typography - Setup Second (still needs work but foundation is set)
@@ -20,3 +22,5 @@
 * [ ] Switchable themes/fonts? Seems like a fun idea for showing off skill set.
 * [ ] Get a favicon going
 * [ ] Project idea - Theme builder for Angular Project/website - Color picker on components and then you build it out.
+* [ ] Setup your website for i8lly 
+* [ ] Setup your website to utilize internationalization (all possible through translate?) and have it run in multiple languages!
