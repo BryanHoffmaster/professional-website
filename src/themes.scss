@@ -1,0 +1,62 @@
+:root {
+  // COLORS
+  --white-0: #fff;
+  --white-100: #eeeeee;
+  --white-500: #d7d7d7;
+
+  --grey-500: #8a8a8a;
+  --grey-900: #454545;
+
+  --black-0: #000;
+  --black-100: #3f3f3f;
+  --black-500: #333333;
+  --black-900: #1a1a1a;
+
+  // FONTS
+  --font-family-roboto: "Roboto";
+  --font-family-new-roman: "Times New Roman";
+}
+
+// TODO: implement these and see if you can change fonts on the fly!
+[data-font-family="serif"] {
+  --font-family: var(--font-family-new-roman);
+}
+
+[data-font-family="sans-serif"] {
+  --font-family: var(--font-family-roboto);
+}
+
+[data-theme="light"] {
+  // NOTE: Stay away from specific item naming, stick with attribute(s) and color biases!
+
+  // Defaults
+  --background-color: var(--white-100);
+  --font-color: var(--grey-900);
+
+  // TODO: These should be moved into their respective components
+  --header-background-color: #ffffff;
+  --header-border-color: #e5e8ea;
+  --header-menu-item-color: #231f20;
+  --header-theme-switch-background-color: #cccccc;
+  --header-theme-switch-before-background-color: #ffffff;
+  --header-theme-switch-checked-background-color: #2196f3;
+
+  --main-content-background-color: #ffffff;
+  --main-content-text-color: #231f20;
+}
+
+[data-theme="dark"] {
+  // Defaults
+  --background-color: var(--black-900);
+  --font-color: var(--grey-500);
+
+  --header-background-color: #2c3c93;
+  --header-border-color: #e5e8ea;
+  --header-menu-item-color: #ffffff;
+  --header-theme-switch-background-color: #cccccc;
+  --header-theme-switch-before-background-color: #ffffff;
+  --header-theme-switch-checked-background-color: #2196f3;
+
+  --main-content-background-color: #231f20;
+  --main-content-text-color: #ffffff;
+}

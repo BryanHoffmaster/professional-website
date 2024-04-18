@@ -1,8 +1,24 @@
-<p>Your Main App Works!</p>
-<p>List of things to work on:</p>
-<ul>
-  <li>Layout</li>
-  <li>Theme</li>
-  <li>Fonts/Typography</li>
-  <li>light/dark mode</li>
-</ul>
+<div class="container">
+  <header>
+    <div class="menu-items">
+      <a class="menu-item"> Home </a>
+      <a class="menu-item"> Articles </a>
+      <a class="menu-item"> Tags </a>
+      <a class="menu-item"> About Us </a>
+    </div>
+    <div class="theme-switcher">
+      <label class="swtich">
+        <input
+          type="checkbox"
+          [checked]="isLightTheme"
+          (change)="onThemeSwitchChange()"
+        />
+        Current Theme: {{this.isLightTheme ? 'Light': 'Dark'}}
+      </label>
+    </div>
+    <div class="slider"></div>
+  </header>
+  <main>
+    <h1> Welcome to Hoff's Page! </h1>
+  </main>
+</div>

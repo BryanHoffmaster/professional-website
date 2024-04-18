@@ -18,3 +18,5 @@
 * [ ] light/dark mode
 * [ ] Idea for Projects page -> Parallax photo (Forest trees looking up) to project the "forrest for the trees" kind of vibe.
 * [ ] Switchable themes/fonts? Seems like a fun idea for showing off skill set.
+* [ ] Get a favicon going
+* [ ] Project idea - Theme builder for Angular Project/website - Color picker on components and then you build it out.
