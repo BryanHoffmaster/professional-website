@@ -19,6 +19,14 @@
             </label>
         </div>
 
+        <label >
+            Font Selected:
+            <select class="font-switcher" (change)="setFont($event)">
+                @for (font of fontTypes; track $index) {
+                    <option [value]="font" >{{ font }}</option>
+                }
+            </select>
+        </label>
     </header>
     <main>
         <h1> Welcome to Hoff's Page! </h1>

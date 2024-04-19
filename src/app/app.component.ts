@@ -1,11 +1,15 @@
-import { Component, HostBinding, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-// TODO: Make switcher for fonts in your website
 // TODO: Turn theme and font switcher into it's own service(s?)
 // TODO: Make a drop down for your theme colors
 // TODO: Get light/dark icons to click on and change the light dark modes of your computer.
+// TODO: MAKE THIS AN ONPUSH APPLICATION ONLY! SIGNALS AND AUTO SUBSCRIPTIONS IN DOM
 
+// TYPES PREAMBLE //
+const fontTypesConst = ['serif', 'sans-serif', 'none'] as const
+type FontTypesTuple = typeof fontTypesConst
+type FontTypes = FontTypesTuple[number]
 
 @Component({
     selector: 'app-root',
@@ -15,17 +19,20 @@ import { RouterOutlet } from '@angular/router';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-    title = 'professional-website';
-
-    colorScheme = '';
-
+    title = 'professional-website'
+    fontType: FontTypes = 'none'
+    fontTypes = fontTypesConst
+    colorScheme = ''
     listeners: any = []
+    isLightTheme = true
 
-    public isLightTheme = true
     private prefersLightScheme = '(prefers-color-scheme: light)'
 
     ngOnInit(): void {
-        this.colorScheme = document.body.getAttribute('data-theme-color')?.toString() || this.colorScheme;
+        // TODO: this should call a standard function
+        //       or better yet should be injected into the app via the theme service
+        this.colorScheme = document.body.getAttribute('data-theme-color')?.toString() || this.colorScheme
+        this.setFont("sans-serif")
     }
 
     ngOnDestroy(): void {
@@ -36,10 +43,14 @@ export class AppComponent {
         });
     }
 
-
-    // onload of the host component, get media query and change theme accordingly
+    /**
+     * onLoad of the host component, set the theme based on what is set locally.
+     * @param event
+     */
     @HostListener('window:load', ['$event'])
     setThemeBasedOnMediaQuery(event: Event) {
+        // TODO: Turn this into a service that listens for changes on light/dark modes
+        //       and then uses them to push those changes up to their respective components.
         const query = window.matchMedia(this.prefersLightScheme)
         const lightMode = this.getModeString(query)
 
@@ -49,8 +60,8 @@ export class AppComponent {
         this.setLightDarkMode(lightMode)
 
         // listen for future changes
-        query.addEventListener("change", (e)=> this.handleListenerChange(e))
-        if (query) this.listeners.push(query);
+        query.addEventListener("change", (e) => this.handleListenerChange(e))
+        if (query) this.listeners.push(query)
     }
 
     private getModeString(q: MediaQueryList) {
@@ -71,9 +82,23 @@ export class AppComponent {
         this.isLightTheme = mode.toLocaleLowerCase() === 'light' ? true : false;
     }
 
-    setFont(font: string) {
-        // "sans|sans-serif" for now
-        document.body.setAttribute('data-font-family', 'sans-serif')
+    setFont(font: string | Event) {
+        if (!font) return;
+        // TODO: do this more reactively
+        if (font instanceof Event) {
+            const value = (font.target as HTMLSelectElement)?.value as FontTypes; // TODO: I don't like this :(
+            if (fontTypesConst.includes(value)) {
+                this.fontType = value;
+            }
+        }
+
+        if (typeof font === "string"){
+            if (fontTypesConst.includes(font as FontTypes)) {
+                this.fontType = font as FontTypes;
+            }
+        }
+
+        document.body.setAttribute('data-font-family', this.fontType)
     }
 
     onThemeSwitchChange(): void {
