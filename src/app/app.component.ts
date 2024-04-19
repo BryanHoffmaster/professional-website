@@ -1,6 +1,12 @@
 import { Component, HostBinding, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+// TODO: Make switcher for fonts in your website
+// TODO: Turn theme and font switcher into it's own service(s?)
+// TODO: Make a drop down for your theme colors
+// TODO: Get light/dark icons to click on and change the light dark modes of your computer.
+
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -11,10 +17,25 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
     title = 'professional-website';
 
+    colorScheme = '';
+
     listeners: any = []
 
     public isLightTheme = true
     private prefersLightScheme = '(prefers-color-scheme: light)'
+
+    ngOnInit(): void {
+        this.colorScheme = document.body.getAttribute('data-theme-color')?.toString() || this.colorScheme;
+    }
+
+    ngOnDestroy(): void {
+        // Be sure to remove listener when you can, kind of moot on the main component, but still good practice.
+        // NOTE that this is only for callbacks to proper handlers!
+        this.listeners.forEach((listener: MediaQueryList) => {
+            listener?.removeEventListener?.("change", this.handleListenerChange);
+        });
+    }
+
 
     // onload of the host component, get media query and change theme accordingly
     @HostListener('window:load', ['$event'])
@@ -28,7 +49,7 @@ export class AppComponent {
         this.setLightDarkMode(lightMode)
 
         // listen for future changes
-        query.addEventListener("change", this.handleListenerChange)
+        query.addEventListener("change", (e)=> this.handleListenerChange(e))
         if (query) this.listeners.push(query);
     }
 
@@ -40,14 +61,6 @@ export class AppComponent {
         this.setLightDarkMode(this.getModeString(window.matchMedia(this.prefersLightScheme)))
     }
 
-
-    ngOnDestroy(): void {
-        // Be sure to remove listener when you can, kind of moot on the main component, but still good practice.
-        // NOTE that this is only for callbacks to proper handlers!
-        this.listeners.forEach((listener: MediaQueryList) => {
-            listener?.removeEventListener?.("change", this.handleListenerChange);
-        });
-    }
 
     setLightDarkMode(mode: string) {
         document.body.setAttribute(
@@ -67,6 +80,4 @@ export class AppComponent {
         this.isLightTheme = !this.isLightTheme
         this.setLightDarkMode(this.isLightTheme ? 'light' : 'dark')
     }
-
-
 }

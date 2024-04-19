@@ -1,0 +1,177 @@
+// TODO: Get PROPER theme names and get those colors associated with them, chatGPT can help a lot here.
+// THESE NEED THE FOLLOWING:
+// * box-shadow(s) colors
+// * opacities for light modes
+// * FIND MORE ....
+
+$themes: (
+    default: ( // TODO: SHOULD THIS BE COLORLESS??
+        light: (
+            primary: rgb(191, 191, 191),
+            primary-alt: rgb(152, 152, 152),
+            secondary: rgb(149, 149, 149),
+            secondary-alt: rgb(128, 128, 128),
+            tertiary: rgb(100, 100, 100),
+            tertiary-alt: rgb(91, 91, 91),
+            background: rgba(245, 245, 245, 1),
+            text: rgba(51, 51, 51, 1),
+            accent: rgb(73, 73, 73),
+            border-accent: rgb(31, 31, 31),
+            warning: rgba(255, 0, 0, 0.561),
+            alert: rgba(255, 204, 0, 0.745),
+        ),
+        dark: (
+            primary: rgb(25, 25, 25),
+            primary-alt: rgb(43, 43, 43),
+            secondary: rgb(89, 89, 89),
+            secondary-alt: rgb(101, 101, 101),
+            tertiary: rgb(157, 157, 157),
+            tertiary-alt: rgb(176, 176, 176),
+            background: rgb(30, 30, 30),
+            text: rgb(209, 209, 209),
+            accent: rgba(172, 172, 172, 0.853),
+            border-accent: rgba(58, 58, 58, 0.896),
+            warning: rgba(255, 0, 0, 0.908),
+            alert: rgba(255, 204, 0, 0.919),
+        )
+    ),
+    green-day: (
+        light: (
+            primary: rgba(102, 187, 106, 1),
+            primary-alt: rgba(138, 204, 129, 1),
+            secondary: rgba(255, 152, 0, 1),
+            secondary-alt: rgba(255, 174, 51, 1),
+            tertiary: rgba(0, 187, 211, 1),
+            tertiary-alt: rgba(53, 213, 234, 1),
+            background: rgba(245, 245, 245, 1),
+            text: rgba(51, 51, 51, 1),
+            accent: rgba(102, 102, 102, 1),
+            border-accent: rgba(153, 153, 153, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+        dark: (
+            primary: rgba(0, 150, 136, 1),
+            primary-alt: rgba(38, 166, 154, 1),
+            secondary: rgba(255, 111, 0, 1),
+            secondary-alt: rgba(255, 145, 0, 1),
+            tertiary: rgba(250, 87, 166, 1),
+            tertiary-alt: rgba(255, 105, 180, 1),
+            background: rgba(33, 33, 33, 1),
+            text: rgba(221, 221, 221, 1),
+            accent: rgba(136, 136, 136, 1),
+            border-accent: rgba(187, 187, 187, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+    ),
+    solarized: (
+        light: (
+            primary: rgba(0, 187, 211, 1),
+            primary-alt: rgba(53, 213, 234, 1),
+            secondary: rgba(255, 152, 0, 1),
+            secondary-alt: rgba(255, 174, 51, 1),
+            tertiary: rgba(102, 187, 106, 1),
+            tertiary-alt: rgba(138, 204, 129, 1),
+            background: rgba(255, 255, 255, 1),
+            text: rgba(85, 85, 85, 1),
+            accent: rgba(136, 136, 136, 1),
+            border-accent: rgba(187, 187, 187, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+        dark: (
+            primary: rgba(255, 111, 0, 1),
+            primary-alt: rgba(255, 145, 0, 1),
+            secondary: rgba(0, 150, 136, 1),
+            secondary-alt: rgba(38, 166, 154, 1),
+            tertiary: rgba(250, 87, 166, 1),
+            tertiary-alt: rgba(255, 105, 180, 1),
+            background: rgba(40, 40, 40, 1),
+            text: rgba(200, 200, 200, 1),
+            accent: rgba(153, 153, 153, 1),
+            border-accent: rgba(204, 204, 204, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+    ),
+    cool-kids: (
+        light: (
+            primary: rgba(255, 152, 0, 1),
+            primary-alt: rgba(255, 174, 51, 1),
+            secondary: rgba(102, 187, 106, 1),
+            secondary-alt: rgba(138, 204, 129, 1),
+            tertiary: rgba(0, 187, 211, 1),
+            tertiary-alt: rgba(53, 213, 234, 1),
+            background: rgba(240, 240, 240, 1),
+            text: rgba(68, 68, 68, 1),
+            accent: rgba(153, 153, 153, 1),
+            border-accent: rgba(204, 204, 204, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+        dark: (
+            primary: rgba(250, 87, 166, 1),
+            primary-alt: rgba(255, 105, 180, 1),
+            secondary: rgba(0, 150, 136, 1),
+            secondary-alt: rgba(38, 166, 154, 1),
+            tertiary: rgba(255, 111, 0, 1),
+            tertiary-alt: rgba(255, 145, 0, 1),
+            background: rgba(23, 23, 23, 1),
+            text: rgba(230, 230, 230, 1),
+            accent: rgba(187, 187, 187, 1),
+            border-accent: rgba(238, 238, 238, 1),
+            warning: rgba(255, 0, 0, 1),
+            alert: rgba(255, 204, 0, 1),
+        ),
+    ),
+);
+
+// Define mixin to apply theme variables
+@mixin apply-theme-variables($variables) {
+    @each $key, $value in $variables {
+        --#{$key}: #{$value};
+    }
+}
+
+// Define mixin to generate theme styles
+// NOTE: The preceding `&` is SUPER important! Makes the attributes apply *together*
+//       in the theme/mode style setup.
+@mixin generate-theme-styles($theme, $mode) {
+    @if $mode == "dark" {
+        &[data-theme="dark"]{
+            @include apply-theme-variables(map-get(map-get($themes, $theme), dark));
+        }
+    } @else {
+        &[data-theme="light"]{
+            @include apply-theme-variables(map-get(map-get($themes, $theme), light));
+        }
+    }
+}
+
+// Generate theme styles for each theme set
+@each $theme, $modes in $themes {
+    body[data-theme-color="#{$theme}"] {
+        @each $mode, $variables in $modes {
+            @include generate-theme-styles($theme, $mode);
+        }
+    }
+}
+
+// TODO: implement these and see if you can change fonts on the fly!
+body[data-font-family="serif"] {
+    --font-family: var(--font-family-new-roman);
+}
+
+body[data-font-family="sans-serif"] {
+    --font-family: var(--font-family-roboto);
+}
+
+:root {
+    // FONTS
+    --font-family-roboto: "Roboto";
+    --font-family-new-roman: "Times New Roman";
+
+    /// FALLBACK DEFAULT LIGHT MODE ///
+    @include apply-theme-variables(map-get(map-get($themes, default), light));
+}
