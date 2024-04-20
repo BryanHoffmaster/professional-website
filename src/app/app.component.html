@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" serifSwitcher>
     <header>
         <div class="menu-items">
             <a class="menu-item">Home</a>
@@ -6,24 +6,31 @@
             <a class="menu-item">Tags</a>
             <a class="menu-item">About Me</a>
         </div>
-        <div class="theme-switcher">
+        <!-- TODO: Put this in it's own component/icon THEM MODE -->
+        <div class="theme-mode-switcher">
             <label class="swtich">
-                <input type="checkbox" [checked]="isLightTheme" (change)="onThemeSwitchChange()" />
-                Current Mode: {{this.isLightTheme ? 'Light': 'Dark'}}
+                <input type="checkbox" [checked]="themeService.themeMode() === 'dark'" (change)="themeService.toggleThemeMode()" />
+                Theme Mode: {{themeService.themeMode() === 'light' ? 'Light': 'Dark'}}
             </label>
         </div>
-        <div class="color-switcher">
-            <label class="swtich">
-                <input type="checkbox" [checked]="isLightTheme" (change)="onThemeSwitchChange()" />
-                Current Color Scheme: {{this.colorScheme}}
+        <!-- TODO: Put this in it's own component THEME-->
+        <div class="theme-switcher">
+            <label>
+                Theme:
+                <select class="theme-switcher" (change)="onThemeSelectionChange($event)">
+                    @for (theme of themeService.themes; track $index) {
+                        <option [value]="theme" >{{ theme }}</option>
+                    }
+                </select>
             </label>
         </div>
 
+        <!-- TODO: This probably needs to be in a form to prevent wonky type conversion in setFont() -->
         <label >
-            Font Selected:
-            <select class="font-switcher" (change)="setFont($event)">
-                @for (font of fontTypes; track $index) {
-                    <option [value]="font" >{{ font }}</option>
+            Serif Type:
+            <select class="font-switcher" (change)="onSerifSelectionChange($event)">
+                @for (serif of themeService.serifs; track $index) {
+                    <option [value]="serif" >{{ serif }}</option>
                 }
             </select>
         </label>

@@ -17,8 +17,8 @@
 * [x] light/dark mode (still needs work but foundation is set)
 * [x] Fonts/Typography - Setup Second (still needs work but foundation is set)
 * [ ] Test VERY SLOW connections speed and see if pager flickers when the theme changes - theres a video you have somewhere saved to fix this issue and I have a strong feeling you didn't set it up right the first time.
+* [ ] Setup some more font types of both serif and not serif versions - *MAKE SURE YOU CAN'T SELECT A NON SERIF FONT WITH A SERIF FONT TYPE*!
 * [ ] Theme - Do theme-ing *after* setting up a coherent **main** theme.
-* [ ] Layout 
 * [ ] Idea for Projects page -> Parallax photo (Forest trees looking up) to project the "forrest for the trees" kind of vibe.
 * [ ] Switchable themes/fonts? Seems like a fun idea for showing off skill set.
 * [ ] Get a favicon going
@@ -30,6 +30,8 @@
 * [ ] "This web app is happily made with Angular and Ionic" and then have a list of other tech stack info about the project. *not sure where to put this yet*.
 * [ ] Fun animations section, and also embedded into components all around your web apps for that sweet 240hz effect.
   * [ ] Test what it's like when a component does **all** of it's animations at a slower speed and see what it's grow/shrink animations look like vs. the rest of the web app.
+* [ ] Setup a logging service to catch and handle errors, especially ones that bubble up to root level!
+* [ ] Loading Spinner using Signals! [Here is a link to a website demo](https://medium.com/@KkambizZ/angular-16-signals-explained-with-five-examples-6b773a12c974)
 
 
 ### CSS COLORS

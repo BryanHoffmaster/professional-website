@@ -139,11 +139,11 @@ $themes: (
 //       in the theme/mode style setup.
 @mixin generate-theme-styles($theme, $mode) {
     @if $mode == "dark" {
-        &[data-theme="dark"]{
+        &[data-theme-mode="dark"]{
             @include apply-theme-variables(map-get(map-get($themes, $theme), dark));
         }
     } @else {
-        &[data-theme="light"]{
+        &[data-theme-mode="light"]{
             @include apply-theme-variables(map-get(map-get($themes, $theme), light));
         }
     }
@@ -151,19 +151,19 @@ $themes: (
 
 // Generate theme styles for each theme set
 @each $theme, $modes in $themes {
-    body[data-theme-color="#{$theme}"] {
+    body[data-theme="#{$theme}"] {
         @each $mode, $variables in $modes {
             @include generate-theme-styles($theme, $mode);
         }
     }
 }
 
-// TODO: implement these and see if you can change fonts on the fly!
-body[data-font-family="serif"] {
+// TODO: Move these to _theme-fonts.scss
+body[data-serif="serif"] {
     --font-family: var(--font-family-new-roman);
 }
 
-body[data-font-family="sans-serif"] {
+body[data-serif="sans-serif"] {
     --font-family: var(--font-family-roboto);
 }
 
