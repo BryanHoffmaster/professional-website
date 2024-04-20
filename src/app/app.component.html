@@ -9,8 +9,8 @@
         <!-- TODO: Put this in it's own component/icon THEM MODE -->
         <div class="theme-mode-switcher">
             <label class="swtich">
-                <input type="checkbox" [checked]="themeService.themeMode() === 'dark'" (change)="themeService.toggleThemeMode()" />
-                Theme Mode: {{themeService.themeMode() === 'light' ? 'Light': 'Dark'}}
+                <input type="checkbox" [checked]="isDarkMode" (change)="onThemeModeChange()" />
+                Theme Mode: {{themeMode}}
             </label>
         </div>
         <!-- TODO: Put this in it's own component THEME-->

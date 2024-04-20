@@ -1,5 +1,6 @@
-import { Injectable, signal } from '@angular/core';
-import { toObservable } from "@angular/core/rxjs-interop";
+import { Injectable, WritableSignal, signal } from '@angular/core'
+import { toObservable } from '@angular/core/rxjs-interop'
+import { Observable, Subscription } from 'rxjs'
 
 // TYPES PREAMBLE //
 
@@ -41,13 +42,21 @@ export class ThemeService {
     private _theme = signal<Themes>('default')
     private _font = signal<Fonts>('roboto')
 
-    // TODO: Change these to signals/observables that change based on
-    //       the serif, theme, and font signals. I.e. don't show non serif fonts when serif is selected.
+    private signals: WritableSignal<any>[] = [
+        this._themeMode,
+        this._serif,
+        this._theme,
+        this._font,
+    ]
+
     // exposing local lists through service here:
     themes = themes
     serifs = serifs
     themeModes = themeModes
     fonts = fonts
+
+    private observables: Observable<any>[] = []
+    private subscriptions: Subscription[] = []
 
     /**
      * The current font serif being used of type {@link Serifs}.
@@ -76,6 +85,41 @@ export class ThemeService {
     constructor() {
         //  TODO: Does this run on window:load or after? Test this!
         this.checkWindowMode()
+        this.buildObservables()
+        this.setBodyAttributes()
+    }
+
+    ngOnDestroy(): void {
+        //Called once, before the instance is destroyed.
+        //Add 'implements OnDestroy' to the class.
+        this.destroyChangeSubscriptions()
+    }
+
+    buildObservables(): void {
+        this.observables = [
+            this.serif$,
+            this.theme$,
+            this.themeMode$,
+            this.font$,
+        ]
+
+        this.createChangeSubscriptions()
+    }
+
+    createChangeSubscriptions(): void {
+        this.observables.forEach(observable => {
+            const subscription = observable.subscribe((_) => {
+                this.setBodyAttributes()
+            })
+
+            this.subscriptions.push(subscription)
+        })
+    }
+
+    destroyChangeSubscriptions(): void {
+        this.subscriptions.forEach(subscription => {
+            subscription.unsubscribe?.()
+        })
     }
 
     /**
@@ -112,12 +156,19 @@ export class ThemeService {
         }
     }
 
+    setBodyAttributes(): void {
+        document.body.setAttribute('data-theme', this._theme())
+        document.body.setAttribute('data-theme-mode', this._themeMode())
+        document.body.setAttribute('data-serif', this._serif())
+        document.body.setAttribute('data-font', this._font())
+    }
+
     /**
      * Toggles the theme mode between light and dark {@link ThemeModes}
      */
     toggleThemeMode(): void {
         const mode = this._themeMode()
-        const nextMode = mode === 'light'? 'dark' : 'light'
+        const nextMode = mode === 'light' ? 'dark' : 'light'
         this.setThemeMode(nextMode)
     }
 
@@ -145,5 +196,3 @@ export class ThemeService {
         this._theme.set(theme)
     }
 }
-
-
