@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 // TODO: Turn theme and font switcher into it's own service(s?)
@@ -16,17 +16,22 @@ type FontTypes = FontTypesTuple[number]
     standalone: true,
     imports: [RouterOutlet],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+    styleUrl: './app.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
     title = 'professional-website'
-    fontType: FontTypes = 'none'
-    fontTypes = fontTypesConst
-    colorScheme = ''
-    listeners: any = []
-    isLightTheme = true
+    readonly fontTypes = fontTypesConst
+    listeners: any = [] // signal??
 
-    private prefersLightScheme = '(prefers-color-scheme: light)'
+    // TODO: Inject the service for switching the themes via the "inject()" core function
+
+
+    fontType: FontTypes = 'none' // TODO: Signal - Currently shows wrong font type on load of the page!!
+    colorScheme = '' // TODO: signal
+    isLightTheme = true // TODO: signal
+
+    private readonly prefersLightScheme = '(prefers-color-scheme: light)'
 
     ngOnInit(): void {
         // TODO: this should call a standard function
