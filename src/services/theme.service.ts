@@ -6,7 +6,7 @@ import { FontService } from './font.service'
 // TYPES PREAMBLE //
 
 /** A list of font serif types that can be used in the application. */
-const serifs = ['serif', 'sans-serif'] as const
+const serifs = ['Serif', 'Sans-serif'] as const
 type SerifsTuple = typeof serifs
 export type Serifs = SerifsTuple[number]
 
@@ -35,9 +35,9 @@ export class ThemeService {
     private fontService = inject(FontService)
 
     private _themeMode = signal<ThemeModes>('light')
-    private _serif = signal<Serifs>('serif')
+    private _serif = signal<Serifs>('Serif')
     private _theme = signal<Themes>('default')
-    private _font = signal<string>('roboto') // NOTE: had to widen this because you can't add types at runtime!
+    private _font = signal<string>('Roboto') // NOTE: had to widen this because you can't add types at runtime!
 
     private signals: WritableSignal<any>[] = [
         this._themeMode,

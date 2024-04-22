@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core'
+import { Component, ElementRef, ViewChild, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { Serifs, ThemeService, Themes } from '../../services/theme.service'
 
@@ -16,6 +16,8 @@ import { Serifs, ThemeService, Themes } from '../../services/theme.service'
 export class DevMenuComponent {
     title = 'Dev Menu'
     themeService = inject(ThemeService)
+
+    @ViewChild('mainContainer', {read: ElementRef, static: true }) mainContainer: ElementRef | undefined
 
     /**
      * Determines whether the current theme mode is set to 'dark'.
@@ -43,6 +45,10 @@ export class DevMenuComponent {
     })
 
     constructor() {}
+
+    onDevMenuToggle() {
+        this.mainContainer?.nativeElement.classList.toggle('open') ?? console.error('Unable to find mainContainer element')
+    }
 
 
     /**

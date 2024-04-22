@@ -1,0 +1,31 @@
+$max-width: 300px;
+
+.container {
+    position: fixed;
+    z-index: 9999; // ON TOP BABY
+
+    top: 0;
+    bottom: 0;
+    width: $max-width;
+    right: -#{$max-width};
+
+    background: var(--background);
+    outline: 1px solid var(--border-accent);
+    color: var(--text);
+    transition: transform .25s ease-in-out;
+
+    &.open {
+        transform: translateX(-#{$max-width});
+    }
+
+
+    .dev-menu-toggle{
+        height: 50px;
+        width: 50px;
+        background: var(--primary-alt);
+        border-radius: 50%;
+        position: absolute;
+        left: -55px;
+        margin-top: 5px;
+    }
+}

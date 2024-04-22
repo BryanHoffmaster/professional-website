@@ -1,6 +1,5 @@
-<!-- Needs a form -->
-
-<div class="container">
+<div #mainContainer class="container">
+    <div class="dev-menu-toggle" (click)="onDevMenuToggle()"></div>
     <form [formGroup]="mainForm">
         <div class="theme-mode-toggle">
             <!-- TODO: make this an ICON to toggle over the checkbox -->
