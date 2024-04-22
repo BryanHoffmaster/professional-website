@@ -158,14 +158,7 @@ $themes: (
     }
 }
 
-// TODO: Move these to _theme-fonts.scss
-body[data-serif="serif"] {
-    --font-family: var(--font-family-new-roman);
-}
 
-body[data-serif="sans-serif"] {
-    --font-family: var(--font-family-roboto);
-}
 
 :root {
     // FONTS

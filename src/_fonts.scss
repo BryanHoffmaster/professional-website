@@ -1,2 +1,34 @@
 @use "./assets/fonts/font_nunito";
 @use "./assets/fonts/font_roboto";
+
+// TODO: Make an SCSS object you can loop through if you plan on doing more fonts.
+
+:root {
+    // FONTS
+    --font-family-roboto: "Roboto";
+    --font-family-new-roman: "Times New Roman";
+    --font-family-nunito:"Nunito";
+}
+
+// NOTE: these are just fallbacks for the serif checks
+body[data-serif="serif"] {
+    --font-family: var(--font-family-new-roman);
+}
+
+body[data-serif="sans-serif"] {
+    --font-family: var(--font-family-roboto);
+}
+
+
+
+body[data-font="Times New Roman"] {
+    --font-family: var(--font-family-new-roman);
+}
+
+body[data-font="Roboto"] {
+    --font-family: var(--font-family-roboto);
+}
+
+body[data-font="Nunito"] {
+    --font-family: var(--font-family-nunito);
+}

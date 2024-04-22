@@ -56,7 +56,7 @@
     font-family: "Nunito";
     src: url("/assets/fonts/Nunito/static/Nunito-Regular.eot");
     src: url("/assets/fonts/Nunito/static/Nunito-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/Nunito/static/Nunito-Regular.woff") format("woff"),
+    // url("/assets/fonts/Nunito/static/Nunito-Regular.woff") format("woff"), // NOTE: errors out
     url("/assets/fonts/Nunito/static/Nunito-Regular.ttf") format("truetype"),
     url("/assets/fonts/Nunito/static/Nunito-Regular.svg#svgFontName") format("svg");
     font-weight: 400;
@@ -131,7 +131,7 @@
     font-family: "Nunito";
     src: url("/assets/fonts/Nunito/static/Nunito-Bold.eot");
     src: url("/assets/fonts/Nunito/static/Nunito-Bold.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/Nunito/static/Nunito-Bold.woff") format("woff"),
+    // url("/assets/fonts/Nunito/static/Nunito-Bold.woff") format("woff"), // NOTE: errors out
     url("/assets/fonts/Nunito/static/Nunito-Bold.ttf") format("truetype"),
     url("/assets/fonts/Nunito/static/Nunito-Bold.svg#svgFontName") format("svg");
     font-weight: bold 700;

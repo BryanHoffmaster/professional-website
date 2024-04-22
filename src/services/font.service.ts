@@ -19,7 +19,8 @@ export class FontService {
      */
     availableFonts = computed(() => {
         // installedFonts will have many duplicates, so we need to filter them out
-        return [...new Set(this.installedFonts().map((font) => font.family))]
+        // NOTE: For some odd reason the double quotes get pass along with the font family name  ̄\_(ツ)_/ ̄
+        return [...new Set(this.installedFonts().map((font) => font.family.replace(/"/g, '')))]
     })
 
     constructor() {

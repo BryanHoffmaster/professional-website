@@ -143,25 +143,20 @@ export class ThemeService {
     }
 
     setSerif(serif: Serifs): void {
-        if (!serif) {
+        if (!serif || !serifs.includes(serif)) {
             console.error('Unable to process serif in themeService.setFontType() with value given: ', serif)
             return
         }
 
-        if (serifs.includes(serif)) {
             this._serif.set(serif)
-        }
     }
 
     setFont(font: string): void {
-        if (!font) {
+        if (!font || !this.fonts.includes(font)) {
             console.error('Unable to process font in themeService.setFontType() with value given: ', font)
             return
         }
-
-        if (this.fonts.includes(font)) {
             this._font.set(font)
-        }
     }
 
     setBodyAttributes(): void {
@@ -185,16 +180,18 @@ export class ThemeService {
      * @param mode The theme mode to set.
      */
     setThemeMode(mode: ThemeModes): void {
-        if (!mode) {
+        if (!mode || !themeModes.includes(mode)) {
             console.error('Unable to process theme mode in themeService.setThemeMode() with value given: ', mode)
             return
         }
 
-        if (themeModes.includes(mode)) {
             this._themeMode.set(mode)
-        }
     }
 
+    /**
+     * Sets the theme for the entire app. See {@link Themes}
+     * @param theme The theme name to set.
+     */
     setTheme(theme: Themes): void {
         if (!theme || !themes.includes(theme)) {
             console.error('Unable to process theme in themeService.setTheme() with value given: ', theme)
