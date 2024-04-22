@@ -33,11 +33,7 @@ export class ThemeService {
     private _theme = signal<Themes>('default')
     private _font = signal<string>('Roboto') // NOTE: had to widen this because you can't add types at runtime!
 
-    private signals: WritableSignal<any>[] = [
-        this._themeMode,
-        this._theme,
-        this._font,
-    ]
+    private signals: WritableSignal<any>[] = [this._themeMode, this._theme, this._font]
 
     // exposing local lists through service here:
     themes = themes
@@ -46,7 +42,6 @@ export class ThemeService {
 
     private observables: Observable<any>[] = []
     private subscriptions: Subscription[] = []
-
 
     /**
      * The current theme mode being used of type {@link ThemeModes}.
@@ -80,17 +75,13 @@ export class ThemeService {
     }
 
     private buildObservables(): void {
-        this.observables = [
-            this.theme$,
-            this.themeMode$,
-            this.font$,
-        ]
+        this.observables = [this.theme$, this.themeMode$, this.font$]
 
         this.createChangeSubscriptions()
     }
 
     private createChangeSubscriptions(): void {
-        this.observables.forEach(observable => {
+        this.observables.forEach((observable) => {
             const subscription = observable.subscribe((_) => {
                 this.setBodyAttributes()
             })
@@ -100,7 +91,7 @@ export class ThemeService {
     }
 
     private destroyChangeSubscriptions(): void {
-        this.subscriptions.forEach(subscription => {
+        this.subscriptions.forEach((subscription) => {
             subscription.unsubscribe?.()
         })
     }
@@ -133,7 +124,7 @@ export class ThemeService {
             console.error('Unable to process font in themeService.setFontType() with value given: ', font)
             return
         }
-            this._font.set(font)
+        this._font.set(font)
     }
 
     setBodyAttributes(): void {
@@ -164,7 +155,7 @@ export class ThemeService {
             return
         }
 
-            this._themeMode.set(mode)
+        this._themeMode.set(mode)
     }
 
     /**
