@@ -1,6 +1,7 @@
-import { Injectable, WritableSignal, signal } from '@angular/core'
+import { Injectable, WritableSignal, inject, signal } from '@angular/core'
 import { toObservable } from '@angular/core/rxjs-interop'
 import { Observable, Subscription } from 'rxjs'
+import { FontService } from './font.service'
 
 // TYPES PREAMBLE //
 
@@ -19,12 +20,6 @@ const themes = ['cool-kids', 'green-day', 'solarized', 'default'] as const
 type ThemesTuple = typeof themes
 export type Themes = ThemesTuple[number]
 
-// TODO: Add a couple more fonts to switch between!
-/** A list of font types that can be used in the application. */
-const fonts = ['roboto'] as const
-type FontsTuple = typeof fonts
-export type Fonts = FontsTuple[number]
-
 /**
  * Service that manages the application's theme.
  * NOTE: This service is used by directives to auto change the font type attribute(s)
@@ -37,10 +32,12 @@ export class ThemeService {
     /** A static reference to the media query that determines if the user prefers light mode. */
     private readonly prefersLightScheme = '(prefers-color-scheme: light)'
 
+    private fontService = inject(FontService)
+
     private _themeMode = signal<ThemeModes>('light')
     private _serif = signal<Serifs>('serif')
     private _theme = signal<Themes>('default')
-    private _font = signal<Fonts>('roboto')
+    private _font = signal<string>('roboto') // NOTE: had to widen this because you can't add types at runtime!
 
     private signals: WritableSignal<any>[] = [
         this._themeMode,
@@ -53,7 +50,7 @@ export class ThemeService {
     themes = themes
     serifs = serifs
     themeModes = themeModes
-    fonts = fonts
+    fonts = this.fontService.availableFonts()
 
     private observables: Observable<any>[] = []
     private subscriptions: Subscription[] = []
@@ -153,6 +150,17 @@ export class ThemeService {
 
         if (serifs.includes(serif)) {
             this._serif.set(serif)
+        }
+    }
+
+    setFont(font: string): void {
+        if (!font) {
+            console.error('Unable to process font in themeService.setFontType() with value given: ', font)
+            return
+        }
+
+        if (this.fonts.includes(font)) {
+            this._font.set(font)
         }
     }
 

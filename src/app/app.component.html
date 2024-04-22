@@ -6,36 +6,10 @@
             <a class="menu-item">Tags</a>
             <a class="menu-item">About Me</a>
         </div>
-        <!-- TODO: Put this in it's own component/icon THEM MODE -->
-        <div class="theme-mode-switcher">
-            <label class="swtich">
-                <input type="checkbox" [checked]="isDarkMode" (change)="onThemeModeChange()" />
-                Theme Mode: {{themeMode}}
-            </label>
-        </div>
-        <!-- TODO: Put this in it's own component THEME-->
-        <div class="theme-switcher">
-            <label>
-                Theme:
-                <select class="theme-switcher" (change)="onThemeSelectionChange($event)">
-                    @for (theme of themeService.themes; track $index) {
-                        <option [value]="theme" >{{ theme }}</option>
-                    }
-                </select>
-            </label>
-        </div>
-
-        <!-- TODO: This probably needs to be in a form to prevent wonky type conversion in setFont() -->
-        <label >
-            Serif Type:
-            <select class="font-switcher" (change)="onSerifSelectionChange($event)">
-                @for (serif of themeService.serifs; track $index) {
-                    <option [value]="serif" >{{ serif }}</option>
-                }
-            </select>
-        </label>
     </header>
     <main>
         <h1> Welcome to Hoff's Page! </h1>
     </main>
 </div>
+
+<dev-menu></dev-menu>
