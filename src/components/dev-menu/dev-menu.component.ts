@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
-import { Serifs, ThemeService, Themes } from '../../services/theme.service'
+import { ThemeService, Themes } from '../../services/theme.service'
 
 /**
  * A handy developer component that will display a floating menu on top of your app
@@ -39,7 +39,6 @@ export class DevMenuComponent {
     mainForm: FormGroup = new FormGroup({
         // Setup the *initial* values
         themeMode: new FormControl(this.isDarkMode),
-        serif: new FormControl(this.themeService.serif()),
         themes: new FormControl(this.themeService.theme()),
         font: new FormControl(this.themeService.font()),
     })
@@ -74,29 +73,6 @@ export class DevMenuComponent {
             return
         }
         this.themeService.setFont(value)
-    }
-
-    /**
-     * Handles the serif selection change event in the drop down menu.
-     * @param event
-     */
-    onSerifSelectionChange(event: Event): void {
-        if (!event || event instanceof Event !== true) {
-            console.error('Unable to process event in app.component.onSerifSelectionChange() with event given: ', event)
-            return
-        }
-
-        const value = (event.target as HTMLSelectElement)?.value as Serifs
-
-        if (!value) {
-            console.error(
-                'Unable to process serif value in app.component.onSerifSelectionChange() with value given: ',
-                value
-            )
-            return
-        }
-
-        this.themeService.setSerif(value)
     }
 
     /**

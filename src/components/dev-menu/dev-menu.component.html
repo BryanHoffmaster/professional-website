@@ -20,17 +20,6 @@
             </label>
         </div>
 
-        <div class="serif-switcher">
-            <label >
-                Serif Type:
-                <select formControlName="serif" (change)="onSerifSelectionChange($event)">
-                    @for (serif of themeService.serifs; track $index) {
-                        <option [value]="serif" >{{ serif }}</option>
-                    }
-                </select>
-            </label>
-        </div>
-
         <div class="font-switcher">
             <label >
                 Font:

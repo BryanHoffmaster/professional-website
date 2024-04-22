@@ -5,11 +5,6 @@ import { FontService } from './font.service'
 
 // TYPES PREAMBLE //
 
-/** A list of font serif types that can be used in the application. */
-const serifs = ['Serif', 'Sans-serif'] as const
-type SerifsTuple = typeof serifs
-export type Serifs = SerifsTuple[number]
-
 /** A list of font types that can be used in the application. */
 const themeModes = ['light', 'dark'] as const
 type ThemeModesTuple = typeof themeModes
@@ -35,31 +30,23 @@ export class ThemeService {
     private fontService = inject(FontService)
 
     private _themeMode = signal<ThemeModes>('light')
-    private _serif = signal<Serifs>('Serif')
     private _theme = signal<Themes>('default')
     private _font = signal<string>('Roboto') // NOTE: had to widen this because you can't add types at runtime!
 
     private signals: WritableSignal<any>[] = [
         this._themeMode,
-        this._serif,
         this._theme,
         this._font,
     ]
 
     // exposing local lists through service here:
     themes = themes
-    serifs = serifs
     themeModes = themeModes
     fonts = this.fontService.availableFonts()
 
     private observables: Observable<any>[] = []
     private subscriptions: Subscription[] = []
 
-    /**
-     * The current font serif being used of type {@link Serifs}.
-     */
-    readonly serif = this._serif.asReadonly()
-    readonly serif$ = toObservable(this._serif)
 
     /**
      * The current theme mode being used of type {@link ThemeModes}.
@@ -92,9 +79,8 @@ export class ThemeService {
         this.destroyChangeSubscriptions()
     }
 
-    buildObservables(): void {
+    private buildObservables(): void {
         this.observables = [
-            this.serif$,
             this.theme$,
             this.themeMode$,
             this.font$,
@@ -103,7 +89,7 @@ export class ThemeService {
         this.createChangeSubscriptions()
     }
 
-    createChangeSubscriptions(): void {
+    private createChangeSubscriptions(): void {
         this.observables.forEach(observable => {
             const subscription = observable.subscribe((_) => {
                 this.setBodyAttributes()
@@ -113,7 +99,7 @@ export class ThemeService {
         })
     }
 
-    destroyChangeSubscriptions(): void {
+    private destroyChangeSubscriptions(): void {
         this.subscriptions.forEach(subscription => {
             subscription.unsubscribe?.()
         })
@@ -142,15 +128,6 @@ export class ThemeService {
         this.setThemeMode(mode)
     }
 
-    setSerif(serif: Serifs): void {
-        if (!serif || !serifs.includes(serif)) {
-            console.error('Unable to process serif in themeService.setFontType() with value given: ', serif)
-            return
-        }
-
-            this._serif.set(serif)
-    }
-
     setFont(font: string): void {
         if (!font || !this.fonts.includes(font)) {
             console.error('Unable to process font in themeService.setFontType() with value given: ', font)
@@ -162,8 +139,10 @@ export class ThemeService {
     setBodyAttributes(): void {
         document.body.setAttribute('data-theme', this._theme())
         document.body.setAttribute('data-theme-mode', this._themeMode())
-        document.body.setAttribute('data-serif', this._serif())
-        document.body.setAttribute('data-font', this._font())
+
+        // NOTE: Putting fontFamily as a CSS variable is way to much work when you can just do this
+        //       and have it propagate throughout the DOM.
+        document.body.style.fontFamily = this._font()
     }
 
     /**
