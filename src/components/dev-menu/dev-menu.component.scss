@@ -12,14 +12,13 @@ $max-width: 300px;
     background: var(--background);
     outline: 1px solid var(--border-accent);
     color: var(--text);
-    transition: transform .25s ease-in-out;
+    transition: transform 0.25s ease-in-out;
 
     &.open {
         transform: translateX(-#{$max-width});
     }
 
-
-    .dev-menu-toggle{
+    .dev-menu-toggle {
         height: 50px;
         width: 50px;
         background: var(--primary-alt);

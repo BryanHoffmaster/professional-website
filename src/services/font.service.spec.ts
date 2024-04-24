@@ -1,16 +1,16 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing'
 
-import { FontService } from './font.service';
+import { FontService } from './font.service'
 
 describe('FontService', () => {
-  let service: FontService;
+    let service: FontService
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(FontService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({})
+        service = TestBed.inject(FontService)
+    })
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+    it('should be created', () => {
+        expect(service).toBeTruthy()
+    })
+})

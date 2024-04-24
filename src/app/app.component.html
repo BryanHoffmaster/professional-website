@@ -1,15 +1,8 @@
-<div class="container" serifSwitcher>
-    <header>
-        <div class="menu-items">
-            <a class="menu-item">Home</a>
-            <a class="menu-item">Articles</a>
-            <a class="menu-item">Tags</a>
-            <a class="menu-item">About Me</a>
-        </div>
-    </header>
-    <main>
-        <h1> Welcome to Hoff's Page! </h1>
-    </main>
-</div>
+
+<app-header-menu></app-header-menu>
+<!-- TODO: Here is where you will set your router outlet for different components/pages -->
+<section #routerOutletSection class="router-outlet-section">
+    <router-outlet></router-outlet>
+</section>
 
 <dev-menu></dev-menu>

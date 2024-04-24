@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ThemeService, Themes } from '../../services/theme.service'
 
@@ -12,12 +12,13 @@ import { ThemeService, Themes } from '../../services/theme.service'
     imports: [ReactiveFormsModule],
     templateUrl: './dev-menu.component.html',
     styleUrl: './dev-menu.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DevMenuComponent {
     title = 'Dev Menu'
     themeService = inject(ThemeService)
 
-    @ViewChild('mainContainer', {read: ElementRef, static: true }) mainContainer: ElementRef | undefined
+    @ViewChild('mainContainer', { read: ElementRef, static: true }) mainContainer: ElementRef | undefined
 
     /**
      * Determines whether the current theme mode is set to 'dark'.
@@ -46,9 +47,9 @@ export class DevMenuComponent {
     constructor() {}
 
     onDevMenuToggle() {
-        this.mainContainer?.nativeElement.classList.toggle('open') ?? console.error('Unable to find mainContainer element')
+        this.mainContainer?.nativeElement.classList.toggle('open') ??
+            console.error('Unable to find mainContainer element')
     }
-
 
     /**
      * Handles the theme selection change event on light/dark mode.
@@ -69,7 +70,10 @@ export class DevMenuComponent {
 
         const value = (event.target as HTMLSelectElement)?.value as string
         if (!value) {
-            console.error('Unable to process font value in app.component.onFontSelectionChange() with value given: ', value)
+            console.error(
+                'Unable to process font value in app.component.onFontSelectionChange() with value given: ',
+                value,
+            )
             return
         }
         this.themeService.setFont(value)
@@ -90,7 +94,7 @@ export class DevMenuComponent {
         if (!value) {
             console.error(
                 'Unable to process theme value in app.component.onThemeSelectionChange() with value given: ',
-                value
+                value,
             )
             return
         }
