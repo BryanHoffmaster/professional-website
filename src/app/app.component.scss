@@ -1,58 +1,12 @@
-// TODO: This is just for testing, you need to move this into it's own component
-.container {
+:host{
     display: flex;
-    flex-flow: column;
-    height: 100%;
-    color: var(--text);
+    flex-direction: column;
+    flex: 1; // Stretch all body content to fit screen!
+}
 
-    header {
-        padding: 20px 30px;
-        background-color: var(--background);
-        border-bottom: 1px solid var(--border-accent);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .menu-items {
-        display: flex;
-        gap: 15px;
-
-        .menu-item {
-            display: inline-block;
-            font-size: 20px;
-            color: var(--text);
-            padding: 0px 15px;
-            cursor: pointer;
-        }
-    }
-
-    main {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        flex: 1 1 auto;
-        background-color: var(--background);
-
-        h1 {
-            font-size: 70px;
-            color: var(--text);
-        }
-    }
-
-    .theme-switcher {
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-            color: var(--text);
-        }
-    }
+section {
+    // !IMPORTANT! The following forces flex layout to "fill" all routed components to rest of available space in page!
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
 }

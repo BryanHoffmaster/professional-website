@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    flex: 1;
+}
+
+section.not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex: 1;
+
+    padding: 25px;
+
+    img {
+        width: clamp(4rem, 50%, 20rem);
+    }
+}

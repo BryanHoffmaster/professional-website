@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core'
+import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { ThemeService, Themes } from '../../services/theme.service'
 
@@ -12,6 +12,7 @@ import { ThemeService, Themes } from '../../services/theme.service'
     imports: [ReactiveFormsModule],
     templateUrl: './dev-menu.component.html',
     styleUrl: './dev-menu.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DevMenuComponent {
     title = 'Dev Menu'

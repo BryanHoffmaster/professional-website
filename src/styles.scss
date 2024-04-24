@@ -3,11 +3,12 @@
 
 html,
 body {
-    // TODO: Build/Install browser padding/margin clear!
+    // ! yes this is important to keep!
     height: 100%;
     margin: 0;
 }
 
 body {
+    display: flex; // Provides flex layout options to rest of app
     font-family: var(--font-family);
 }

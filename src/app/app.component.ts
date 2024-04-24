@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { DevMenuComponent } from '../components/dev-menu/dev-menu.component'
-
-// TODO: Get light/dark icons to click on and change the light dark modes of your computer.
+import { HeaderMenuComponent } from '../components/header-menu/header-menu.component'
 
 /**
  * The main application component.
@@ -11,7 +10,7 @@ import { DevMenuComponent } from '../components/dev-menu/dev-menu.component'
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, CommonModule, DevMenuComponent],
+    imports: [RouterOutlet, CommonModule, DevMenuComponent, HeaderMenuComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

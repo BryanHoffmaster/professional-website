@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'app-portfolio',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core'
     imports: [],
     templateUrl: './portfolio.component.html',
     styleUrl: './portfolio.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PortfolioComponent {}
