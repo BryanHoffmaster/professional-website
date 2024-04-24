@@ -5,21 +5,23 @@
 // * FIND MORE ....
 
 $themes: (
-    default: ( // TODO: SHOULD THIS BE COLORLESS??
-        light: (
-            primary: rgb(191, 191, 191),
-            primary-alt: rgb(152, 152, 152),
-            secondary: rgb(149, 149, 149),
-            secondary-alt: rgb(128, 128, 128),
-            tertiary: rgb(100, 100, 100),
-            tertiary-alt: rgb(91, 91, 91),
-            background: rgba(245, 245, 245, 1),
-            text: rgba(51, 51, 51, 1),
-            accent: rgb(73, 73, 73),
-            border-accent: rgb(31, 31, 31),
-            warning: rgba(255, 0, 0, 0.561),
-            alert: rgba(255, 204, 0, 0.745),
-        ),
+    default: (
+        // TODO: SHOULD THIS BE COLORLESS??
+        light:
+            (
+                primary: rgb(191, 191, 191),
+                primary-alt: rgb(152, 152, 152),
+                secondary: rgb(149, 149, 149),
+                secondary-alt: rgb(128, 128, 128),
+                tertiary: rgb(100, 100, 100),
+                tertiary-alt: rgb(91, 91, 91),
+                background: rgba(245, 245, 245, 1),
+                text: rgba(51, 51, 51, 1),
+                accent: rgb(73, 73, 73),
+                border-accent: rgb(31, 31, 31),
+                warning: rgba(255, 0, 0, 0.561),
+                alert: rgba(255, 204, 0, 0.745),
+            ),
         dark: (
             primary: rgb(25, 25, 25),
             primary-alt: rgb(43, 43, 43),
@@ -33,7 +35,7 @@ $themes: (
             border-accent: rgba(58, 58, 58, 0.896),
             warning: rgba(255, 0, 0, 0.908),
             alert: rgba(255, 204, 0, 0.919),
-        )
+        ),
     ),
     green-day: (
         light: (
@@ -138,12 +140,12 @@ $themes: (
 // NOTE: The preceding `&` is SUPER important! Makes the attributes apply *together*
 //       in the theme/mode style setup.
 @mixin generate-theme-styles($theme, $mode) {
-    @if $mode == "dark" {
-        &[data-theme-mode="dark"]{
+    @if $mode == 'dark' {
+        &[data-theme-mode='dark'] {
             @include apply-theme-variables(map-get(map-get($themes, $theme), dark));
         }
     } @else {
-        &[data-theme-mode="light"]{
+        &[data-theme-mode='light'] {
             @include apply-theme-variables(map-get(map-get($themes, $theme), light));
         }
     }
@@ -151,19 +153,17 @@ $themes: (
 
 // Generate theme styles for each theme set
 @each $theme, $modes in $themes {
-    body[data-theme="#{$theme}"] {
+    body[data-theme='#{$theme}'] {
         @each $mode, $variables in $modes {
             @include generate-theme-styles($theme, $mode);
         }
     }
 }
 
-
-
 :root {
     // FONTS
-    --font-family-roboto: "Roboto";
-    --font-family-new-roman: "Times New Roman";
+    --font-family-roboto: 'Roboto';
+    --font-family-new-roman: 'Times New Roman';
 
     /// FALLBACK DEFAULT LIGHT MODE ///
     @include apply-theme-variables(map-get(map-get($themes, default), light));

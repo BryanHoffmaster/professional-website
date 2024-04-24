@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DevMenuComponent } from './dev-menu.component'
+import { ContactComponent } from './contact.component'
 
-describe('DevMenuComponent', () => {
-    let component: DevMenuComponent
-    let fixture: ComponentFixture<DevMenuComponent>
+describe('ContactComponent', () => {
+    let component: ContactComponent
+    let fixture: ComponentFixture<ContactComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [DevMenuComponent],
+            imports: [ContactComponent],
         }).compileComponents()
 
-        fixture = TestBed.createComponent(DevMenuComponent)
+        fixture = TestBed.createComponent(ContactComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

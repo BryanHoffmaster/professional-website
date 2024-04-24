@@ -1,5 +1,5 @@
-@use "themes";
-@use "fonts";
+@use 'themes';
+@use 'fonts';
 
 html,
 body {
@@ -9,5 +9,5 @@ body {
 }
 
 body {
-    font-family: var(--font-family)
+    font-family: var(--font-family);
 }

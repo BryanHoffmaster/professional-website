@@ -4,8 +4,13 @@
         <div class="theme-mode-toggle">
             <!-- TODO: make this an ICON to toggle over the checkbox -->
             <label class="swtich">
-                <input type="checkbox" formControlName="themeMode" [checked]="isDarkMode" (change)="onThemeModeChange()" />
-                Theme Mode: {{themeMode}}
+                <input
+                    type="checkbox"
+                    formControlName="themeMode"
+                    [checked]="isDarkMode"
+                    (change)="onThemeModeChange()"
+                />
+                Theme Mode: {{ themeMode }}
             </label>
         </div>
 
@@ -14,18 +19,18 @@
                 Theme:
                 <select class="theme-switcher" formControlName="themes" (change)="onThemeSelectionChange($event)">
                     @for (theme of themeService.themes; track $index) {
-                        <option [value]="theme" >{{ theme }}</option>
+                        <option [value]="theme">{{ theme }}</option>
                     }
                 </select>
             </label>
         </div>
 
         <div class="font-switcher">
-            <label >
+            <label>
                 Font:
                 <select formControlName="font" (change)="onFontSelectionChange($event)">
                     @for (font of themeService.fonts; track $index) {
-                        <option [value]="font" >{{ font }}</option>
+                        <option [value]="font">{{ font }}</option>
                     }
                 </select>
             </label>

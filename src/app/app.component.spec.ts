@@ -11,7 +11,7 @@ describe('AppComponent', () => {
             providers: [
                 // TODO: HERE IS THE ISSUE YOU ARE NOT "INJECTING" THE SERVICE IN CORRECTLY
                 // {provide: ThemeService, useValue: ThemeService}
-            ]
+            ],
         }).compileComponents()
     })
 

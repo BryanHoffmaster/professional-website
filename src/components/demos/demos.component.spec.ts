@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DevMenuComponent } from './dev-menu.component'
+import { DemosComponent } from './demos.component'
 
-describe('DevMenuComponent', () => {
-    let component: DevMenuComponent
-    let fixture: ComponentFixture<DevMenuComponent>
+describe('DemosComponent', () => {
+    let component: DemosComponent
+    let fixture: ComponentFixture<DemosComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [DevMenuComponent],
+            imports: [DemosComponent],
         }).compileComponents()
 
-        fixture = TestBed.createComponent(DevMenuComponent)
+        fixture = TestBed.createComponent(DemosComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing'
 
-import { FontService } from './font.service'
+import { WindowService } from './window.service'
 
-describe('FontService', () => {
-    let service: FontService
+describe('WindowService', () => {
+    let service: WindowService
 
     beforeEach(() => {
         TestBed.configureTestingModule({})
-        service = TestBed.inject(FontService)
+        service = TestBed.inject(WindowService)
     })
 
     it('should be created', () => {
