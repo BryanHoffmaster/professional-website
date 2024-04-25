@@ -4,7 +4,7 @@
     color: var(--text);
 
     header {
-        padding: 20px 30px;
+        padding: 20px 15px; // TODO: padding via em/rem units?
         background-color: var(--background);
         border-bottom: 1px solid var(--border-accent);
     }
@@ -19,6 +19,15 @@
             color: var(--text);
             padding: 0px 15px;
             cursor: pointer;
+            text-decoration: none;
+
+            // Hides the current active route from the header menu.
+            &.active-link {
+                cursor: default;
+                user-select: none;
+                text-decoration: underline;
+                color: var(--tertiary-alt); // TODO: more work on this via the theme color.
+            }
         }
     }
 }

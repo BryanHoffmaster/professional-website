@@ -1,10 +1,14 @@
 <div class="container">
     <header>
         <div class="menu-items">
-            <a class="menu-item">Home</a>
-            <a class="menu-item">Articles</a>
-            <a class="menu-item">Tags</a>
-            <a class="menu-item">About Me</a>
+            <!-- routerLinkActive applies a class to the anchor tag when the router link is active -->
+            <!-- In this case, we hide/show the links with css based on the router link active state -->
+            <!-- This works for *all* sub-links, /home/user will also apply the active class -->
+            <a class="menu-item" routerLink="/home" routerLinkActive="active-link">Home</a>
+            <a class="menu-item" routerLink="/blog" routerLinkActive="active-link">Blog</a>
+            <a class="menu-item" routerLink="/demos" routerLinkActive="active-link">Demos</a>
+            <a class="menu-item" routerLink="/portfolio" routerLinkActive="active-link">Portfolio</a>
+            <a class="menu-item" routerLink="/contact" routerLinkActive="active-link">Contact</a>
         </div>
     </header>
 </div>

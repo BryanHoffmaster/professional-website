@@ -2,7 +2,9 @@
 // THESE NEED THE FOLLOWING:
 // * box-shadow(s) colors
 // * opacities for light modes
+// * unselectable/unclicable links/buttons/textareas/inputs/selects
 // * FIND MORE ....
+// TODO: Create primary-<level> and secondary-<level> colors for each theme to better facilitate coloring of text and backgrounds.
 
 $themes: (
     default: (
