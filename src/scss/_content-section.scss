@@ -1,0 +1,35 @@
+// Creates a "content" section for all components to inherit from, so that their content will fill exactly
+// the same in every route.
+
+:host {
+    display: flex;
+}
+
+.container {
+    color: var(--text);
+    background: var(--background);
+    width: 100vw; //!important to stretch out the rows for centered content
+    overflow-x: hidden;
+    display: flex;
+
+    main {
+        background-color: var(--background);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 100%;
+
+        h1 {
+            font-size: 70px; // TODO: create a series of fonts rem font sizes for h1, h2, etc. and apply them here.
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        p {
+            text-indent: 5ch;
+            max-width: 70ch;
+        }
+    }
+}
