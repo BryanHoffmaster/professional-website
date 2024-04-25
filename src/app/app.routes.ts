@@ -21,9 +21,27 @@ export const routes: Routes = [
             ),
     },
     {
+        path: 'blog/:postId',
+        loadComponent: () => import('../components/blog/blog.component').then(
+            (m) => m.BlogComponent
+        )
+    },
+    {
+        path:'demos',
+        loadComponent: () => import('../components/demos/demo/demo.component').then(
+            (m) => m.DemoComponent
+        )
+    },
+    {
         path: 'portfolio',
         loadComponent: () => import('../components/portfolio/portfolio.component').then(
             (m) => m.PortfolioComponent
+        )
+    },
+    {
+        path: 'contact',
+        loadComponent: () => import('../components/contact/contact.component').then(
+            (m) => m.ContactComponent
         )
     },
     {

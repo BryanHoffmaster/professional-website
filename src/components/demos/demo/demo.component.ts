@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     selector: 'app-demos',
     standalone: true,
     imports: [],
-    templateUrl: './demos.component.html',
-    styleUrl: './demos.component.scss',
+    templateUrl: './demo.component.html',
+    styleUrl: './demo.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DemosComponent {}
+export class DemoComponent {}
