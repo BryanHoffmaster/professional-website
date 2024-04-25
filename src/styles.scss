@@ -11,4 +11,7 @@ body {
 body {
     display: flex; // Provides flex layout options to rest of app
     font-family: var(--font-family);
+    // TODO: line-height, font-size, font-color -> set root values and then "inherit" them
+    //       in another css selector for button,textarea,input,select {font:iherit}
+    //      NOTE: "font" is a short-hand for all typography related properties set to "inherit"
 }
