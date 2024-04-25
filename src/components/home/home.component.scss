@@ -1,27 +1,23 @@
-:host {
-    // ! Fills all available space in app-root main ".section" element!
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-}
-
 .container {
-    display: flex;
-    flex-flow: column;
-    flex: 1 1 auto;
-    height: 100%;
     color: var(--text);
 
     main {
-        justify-content: center;
         align-items: center;
         display: flex;
-        flex: 1 1 auto;
+        flex-direction: column;
         background-color: var(--background);
 
         h1 {
             font-size: 70px; // TODO: create a series of fonts rem font sizes for h1, h2, etc. and apply them here.
-            color: var(--text);
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        p {
+            text-indent: 5ch;
+            max-width: 70ch;
         }
     }
 
