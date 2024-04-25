@@ -5,8 +5,9 @@
 }
 
 section {
-    // !IMPORTANT! The following forces flex layout to "fill" all routed components to rest of available space in page!
+    // !IMPORTANT! This establishes overflow for "content" sections for each component.
+    height: 100%;
     display: flex;
-    flex-direction: column;
     overflow-y: scroll;
+    overflow-x: hidden;
 }

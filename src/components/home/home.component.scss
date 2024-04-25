@@ -1,24 +1,26 @@
-.container {
-    color: var(--text);
+@use "../../scss/content-section";
 
-    main {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        background-color: var(--background);
+// .container {
+//     color: var(--text);
 
-        h1 {
-            font-size: 70px; // TODO: create a series of fonts rem font sizes for h1, h2, etc. and apply them here.
-        }
+//     main {
+//         align-items: center;
+//         display: flex;
+//         flex-direction: column;
+//         background-color: var(--background);
 
-        h2 {
-            font-size: 40px;
-        }
+//         h1 {
+//             font-size: 70px; // TODO: create a series of fonts rem font sizes for h1, h2, etc. and apply them here.
+//         }
 
-        p {
-            text-indent: 5ch;
-            max-width: 70ch;
-        }
-    }
+//         h2 {
+//             font-size: 40px;
+//         }
 
-}
+//         p {
+//             text-indent: 5ch;
+//             max-width: 70ch;
+//         }
+//     }
+
+// }
