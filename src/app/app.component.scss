@@ -7,6 +7,6 @@
 section {
     // !IMPORTANT! The following forces flex layout to "fill" all routed components to rest of available space in page!
     display: flex;
-    flex-grow: 1;
     flex-direction: column;
+    overflow-y: scroll;
 }
