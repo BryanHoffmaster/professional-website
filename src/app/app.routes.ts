@@ -7,47 +7,39 @@ export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'home'
+        redirectTo: 'home',
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
     },
     {
         path: 'blog',
-        loadComponent: () =>
-            import('../components/blog/blog.component').then(
-                (m) => m.BlogComponent
-            ),
+        loadComponent: () => import('../components/blog/blog.component').then((m) => m.BlogComponent),
     },
     {
         path: 'blog/:postId',
-        loadComponent: () => import('../components/blog/blog.component').then(
-            (m) => m.BlogComponent
-        )
+        loadComponent: () => import('../components/blog/blog.component').then((m) => m.BlogComponent),
     },
     {
-        path:'demos',
-        loadComponent: () => import('../components/demos/demo/demo.component').then(
-            (m) => m.DemoComponent
-        )
+        path: 'demos',
+        loadComponent: () => import('../components/demos/demo/demo.component').then((m) => m.DemoComponent),
     },
     {
         path: 'portfolio',
-        loadComponent: () => import('../components/portfolio/portfolio.component').then(
-            (m) => m.PortfolioComponent
-        )
+        loadComponent: () => import('../components/portfolio/portfolio.component').then((m) => m.PortfolioComponent),
     },
     {
         path: 'contact',
-        loadComponent: () => import('../components/contact/contact.component').then(
-            (m) => m.ContactComponent
-        )
+        loadComponent: () => import('../components/contact/contact.component').then((m) => m.ContactComponent),
+    },
+    {
+        path: 'tools',
+        loadComponent: () => import('../components/tools/tools.component').then((m) => m.ToolsComponent),
     },
     {
         path: '**',
-        loadComponent: () => import('../components/page-not-found/page-not-found.component').then(
-            (m) => m.PageNotFoundComponent
-        )
-    }
+        loadComponent: () =>
+            import('../components/page-not-found/page-not-found.component').then((m) => m.PageNotFoundComponent),
+    },
 ]

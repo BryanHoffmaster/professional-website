@@ -1,0 +1,57 @@
+.card {
+    max-width: 300px; // mess with these values, set defaults?
+    max-height: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    cursor: pointer;
+
+
+
+    .flex-wrap {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondary);
+        color: var(--text);
+        height: 100%;
+        justify-content: space-between;
+        transition: 0.2s;
+
+        &:hover{
+            // NOTE: this _only_ works where the _first_ operand is a non-number, second _has_ to be a <number> type
+            transform: translateY(calc(var(--padding-em-xlarge) * -1));
+        }
+
+        .header-container {
+            flex: 0.5 0 auto;
+
+            .header {
+                font-size: var(--font-rem-size-xlarge);
+                font-weight: 300;
+                padding: var(--padding-em-small);
+            }
+        }
+
+        .image-container {
+            flex: 2 1 auto;
+
+            img {
+                object-fit: fill;
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+            }
+        }
+
+        .content-container {
+            flex: 1 1 auto;
+
+            .content {
+                font-size: var(--font-rem-size-small);
+                font-weight: 300;
+                padding: var(--padding-em-large);
+            }
+        }
+    }
+}

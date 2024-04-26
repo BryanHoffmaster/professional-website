@@ -1,0 +1,13 @@
+@use '../../scss/content-section';
+@use '../../assets/fonts/font_size' as fonts;
+
+.tool-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: start;
+    gap: fonts.$padding-em-giga;
+    justify-content: center;
+}

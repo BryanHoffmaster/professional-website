@@ -3,7 +3,9 @@
     "sections": [
         {
             "header": "Let's Talk About Web Development",
-            "paragraphs": ["In here you'll get a sneak peak at how I work, the content that I like to work with, and more. I hope you enjoy my content!"]
+            "paragraphs": [
+                "In here you'll get a sneak peak at how I work, the content that I like to work with, and more. I hope you enjoy my content!"
+            ]
         },
         {
             "header": "Latest Headlines",
