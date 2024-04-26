@@ -1,6 +1,18 @@
 @use 'themes';
 @use 'fonts';
 
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     // ! yes this is important to keep!

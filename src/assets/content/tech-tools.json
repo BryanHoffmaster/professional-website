@@ -1,0 +1,11 @@
+{
+    "cards": [
+        {
+            "header": "Angular Change Detection Visualizer",
+            "imgSrc": "assets/images/jpeg/angularCDVisualizer.jpg",
+            "imgAlt": "Angular Change Detection Visualizer",
+            "content": "This tool allows you to visually see how parent/child/ancestor components are affected by a change in a any component. It is a great tool to understand how Angular change detection works.",
+            "link": "https://jeanmeche.github.io/angular-change-detection/"
+        }
+    ]
+}

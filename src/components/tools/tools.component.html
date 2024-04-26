@@ -1,0 +1,11 @@
+<div class="container">
+    <main>
+        <h1>Tech Tools Section</h1>
+
+        <div class="tool-container">
+            @for (card of cards(); track $index) {
+                <app-card [cardData]="card"></app-card>
+            }
+        </div>
+    </main>
+</div>

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { HeaderMenuComponent } from './header-menu.component'
+import { ToolsComponent } from './tools.component'
 
-describe('HeaderMenuComponent', () => {
-    let component: HeaderMenuComponent
-    let fixture: ComponentFixture<HeaderMenuComponent>
+describe('ToolsComponent', () => {
+    let component: ToolsComponent
+    let fixture: ComponentFixture<ToolsComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [HeaderMenuComponent],
+            imports: [ToolsComponent],
         }).compileComponents()
 
-        fixture = TestBed.createComponent(HeaderMenuComponent)
+        fixture = TestBed.createComponent(ToolsComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

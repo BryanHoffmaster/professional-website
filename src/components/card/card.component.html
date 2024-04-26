@@ -1,0 +1,13 @@
+<div class="card" (click)="onClick()">
+    <div class="flex-wrap">
+        <div class="image-container">
+            <img [src]="cardData.imgSrc" [alt]="cardData.imgAlt" />
+        </div>
+        <div class="header-container">
+            <div class="header">{{ cardData.header }}</div>
+        </div>
+        <div class="content-container">
+            <div class="content">{{ cardData.content }}</div>
+        </div>
+    </div>
+</div>

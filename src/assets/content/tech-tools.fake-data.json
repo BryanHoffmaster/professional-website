@@ -1,0 +1,39 @@
+{
+    "cards": [
+        {
+            "header": "Fake Data Card 1 No Image",
+            "imgSrc": "",
+            "imgAlt": "Fake Data Card 1 No Image",
+            "content": "This tool allows you to visually see how parent/child/ancestor components are affected by a change in a any component. It is a great tool to understand how Angular change detection works.",
+            "link": ""
+        },
+        {
+            "header": "Fake Data Card 2 No content",
+            "imgSrc": "",
+            "imgAlt": "Fake Data Card 2",
+            "content": "",
+            "link": ""
+        },
+        {
+            "header": "",
+            "imgSrc": "",
+            "imgAlt": "Fake Data Card 3",
+            "content": "No header, but there is a content field provided. This is just really long text to try and fill out more of the card to see how it handles itself.",
+            "link": ""
+        },
+        {
+            "header": "Fake Data Card 4",
+            "imgSrc": "",
+            "imgAlt": "Fake Data Card 4",
+            "content": "This tool allows you to visually see how parent/child/ancestor components are affected by a change in a any component. It is a great tool to understand how Angular change detection works.",
+            "link": ""
+        },
+        {
+            "header": "Fake Data Card 5",
+            "imgSrc": "",
+            "imgAlt": "Fake Data Card 5",
+            "content": "This tool allows you to visually see how parent/child/ancestor components are affected by a change in a any component. It is a great tool to understand how Angular change detection works.",
+            "link": ""
+        }
+    ]
+}
